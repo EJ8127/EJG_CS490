@@ -8,7 +8,6 @@ def main():
     url = "https://student-info-api.netlify.app/.netlify/functions/submit_student_info"
 
 
-
     data = {
         "UCID": "ejg37",
         "first_name": "Eric",
@@ -21,14 +20,17 @@ def main():
         "section": "101",
     }
 
+
     headers = {"Content-Type": "application/json"}
+
 
     try:
         response = requests.post(url, headers=headers, json=data)
         print("Status:", response.status_code)
         print("Response:", response.text)
     except requests.exceptions.RequestException as error:
-        print("Error sending request:", error)
+        print("Error", error)
+
 
 if __name__ == "__main__":
     main()
